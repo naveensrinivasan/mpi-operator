@@ -9,6 +9,7 @@ require (
 	github.com/kubeflow/common v0.0.0-20200313171840-64f943084a05
 	github.com/kubernetes-sigs/kube-batch v0.5.0
 	github.com/mailru/easyjson v0.0.0-20190626092158-b2ccc519800e // indirect
+	github.com/mattn/goveralls v0.0.7 // indirect
 	github.com/prometheus/client_golang v0.9.2
 	github.com/stretchr/testify v1.3.0
 	k8s.io/api v0.15.10
