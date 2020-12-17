@@ -2,7 +2,7 @@ name: Quality
 on: [push, pull_request]
 jobs:
   test:
-    name: Test with Coverage
+    name: Build, test and report coverage
     runs-on: ubuntu-latest
     steps:
     - name: Set up Go
@@ -14,9 +14,9 @@ jobs:
     - name: Install dependencies
       run: |
         go mod download
-    - name: Run Unit tests
+    - name: Run all make targets
       run: |
-        make test
+        make all
     - name: Send coverage
       uses: shogo82148/actions-goveralls@v1
       with:
