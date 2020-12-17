@@ -33,7 +33,7 @@ init:
 fmt:
 	go fmt ./...
 
-ci-test:
+ci-test: goveralls
 	goveralls -v -package ./pkg/... -ignore "pkg/client/*/*.go,pkg/client/*/*/*.go,pkg/client/*/*/*/*.go,pkg/client/*/*/*/*/*.go,pkg/client/*/*/*/*/*/*.go,pkg/client/*/*/*/*/*/*/*.go,pkg/apis/tensorflow/*/zz_generated.*.go,pkg/apis/kubeflow/*/*_generated.go"
 
 # Generate code
@@ -63,5 +63,11 @@ golangci-lint:
 
 lint: golangci-lint ## Run golangci-lint linter
 	$(GOLANGCI_LINT) run --new-from-rev=origin/master
+
+goveralls:
+	@[ -f goveralls ] || { \
+	set -e ;\
+    go get github.com/mattn/goveralls ;\
+	}
 
 .PHONY: clean
