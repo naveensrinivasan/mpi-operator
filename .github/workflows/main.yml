@@ -3,8 +3,6 @@ on: [push, pull_request]
 jobs:
   validate:
     name: Validate 
-    needs:
-      - lint
     runs-on: ubuntu-latest
     # Pull requests from the same repository won't trigger this checks as they were already triggered by the push
     if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
