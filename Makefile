@@ -33,6 +33,9 @@ init:
 fmt:
 	go fmt ./...
 
+ci-test:
+	goveralls -v -package ./pkg/... -ignore "pkg/client/*/*.go,pkg/client/*/*/*.go,pkg/client/*/*/*/*.go,pkg/client/*/*/*/*/*.go,pkg/client/*/*/*/*/*/*.go,pkg/client/*/*/*/*/*/*/*.go,pkg/apis/tensorflow/*/zz_generated.*.go,pkg/apis/kubeflow/*/*_generated.go"
+
 # Generate code
 generate:
 	go generate ./pkg/... ./cmd/...
